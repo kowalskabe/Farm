@@ -5,6 +5,7 @@ Początkowy budżet i ceny powinny być tak dobrane, aby nie było możliwe spe�
 */
 import java.io.Console;
 
+
 public class Game {
     public static void main(String[] args){
 
