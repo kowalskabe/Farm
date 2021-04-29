@@ -1,4 +1,6 @@
-public class Chicken extends Fowl{
+package Models;
+
+public class Duck extends Fowl{
     @Override
     public void displayInfo() {
 

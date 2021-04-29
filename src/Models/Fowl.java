@@ -1,3 +1,5 @@
+package Models;
+
 public abstract class Fowl extends Animal{
     boolean isEggsForSale;
     Integer numberOfEggs;
