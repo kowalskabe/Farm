@@ -1,4 +1,4 @@
-/*
+package Models;/*
 * farma
 	- ziemia w hektarach
 	- budynki

@@ -1,4 +1,4 @@
-/*
+package Models;/*
 zwierzęta
 	!- płeć
 	!- koszt zakupu
