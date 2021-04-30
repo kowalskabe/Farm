@@ -9,7 +9,6 @@ import Models.*;
 public class Game {
     public static void main(String[] args){
         Market marketPlace = Market.getInstance();
-        marketPlace.displayPrices();
 
         System.out.println("---   MAIN MENU   ---");
         System.out.println();
@@ -33,6 +32,8 @@ public class Game {
         int week = 0;
         while(!winnerFlag) {
             week++;
+            System.out.println("---    RUNDA " + week +"    ---");
+            System.out.println();
             for (Object listOfPlayer : listOfPlayers) {
                 Farmer currentPlayer = (Farmer) listOfPlayer;
                 System.out.println("---------------------");
