@@ -1,14 +1,14 @@
-package UserInterface;
+import java.io.Console;
+import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.ListIterator;
 
-import Models.Farmer;
+import Models.*;
 
-
-public class Dashboard {
-
-    public static void main(String[] args) {
+public class Game {
+    public static void main(String[] args){
+        Market marketPlace = Market.getInstance();
 
         System.out.println("---   MAIN MENU   ---");
         System.out.println();
@@ -30,8 +30,10 @@ public class Dashboard {
 
         boolean winnerFlag = false;
         int week = 0;
-        while(!winnerFlag){
+        while(!winnerFlag) {
             week++;
+            System.out.println("---    RUNDA " + week +"    ---");
+            System.out.println();
             for (Object listOfPlayer : listOfPlayers) {
                 Farmer currentPlayer = (Farmer) listOfPlayer;
                 System.out.println("---------------------");
@@ -40,12 +42,10 @@ public class Dashboard {
             }
 
             System.out.println("Koniec rundy " + week + ".");
-            System.out.println("Gramy dalej? tak/nie");
+            System.out.println("Brak zwycięzcy. Gramy dalej? tak/nie");
             String decision = input.nextLine();
             if (decision.equals("tak")) continue;
             else if (decision.equals("nie")) break;
-
         }
-
     }
 }

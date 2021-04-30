@@ -10,5 +10,10 @@ package Models;/*
 		- używać do karmienia zwierząt
 */
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Farm {
+    HashMap buildings = new HashMap<String, Integer>();
+    Double arebleLand = 0.0;
 }
