@@ -1,6 +1,6 @@
 package Interfaces;
 
-public interface Animals {
+public interface iAnimals {
     void displayInfo();
     void feed();
     void sell();

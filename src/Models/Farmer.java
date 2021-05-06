@@ -22,17 +22,10 @@ public class Farmer {
     public String name = "player";
     Double money = 50_000.0;
 
-    ArrayList farms = new ArrayList<Farm>();
-
-    ArrayList ducks = new ArrayList<Duck>();
-    ArrayList chickens = new ArrayList<Chicken>();
-    ArrayList pigeons = new ArrayList<Pigeon>();
-
-
-     //farmBuildings
+    Farm farm = new Farm();
 
     public void displayInfo(){
-        System.out.println("Farmer:\t"+ name +"\nMoney:\t" + money);
+        System.out.println(">>>> Farmer: "+ name.toUpperCase());
     }
 }
 

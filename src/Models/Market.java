@@ -3,6 +3,7 @@ package Models;/*
 Dodaj obsługę wahań ceny sprzedaży produktów rolnych (10%) - cena może ulegać losowym wahaniom, możesz sprzedać plony od razu po zbiorach lub przechowywać je jakiś czas i czekać na lepszą okazję.
  */
 // ----->  singleton design pattern
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map.Entry;
@@ -10,25 +11,41 @@ import java.util.Map.Entry;
 public class Market {
     private static Market uniqueInstance = new Market();
 
-    private HashMap priceList = new HashMap<String, Double>();
-
-    private HashMap purchasePriceList = new HashMap<String, Double>();
+    //private ArrayList priceList = new ArrayList<MarketItem>();
+    private HashMap priceList = new HashMap<Integer, MarketItem>();
     private Iterator itr;
+    private Object object;
 
     private Market (){
-        priceList.put("Chicken", 10.0);
-        priceList.put("Duck", 15.0);
-        priceList.put("Pigeon", 50.0);
+        //priceList.add(new MarketItem("Chicken", 10.0, 12.0, 15));
+        //priceList.add(new MarketItem("Duck", 20.0, 25.0, 10));
+        //priceList.add(new MarketItem("Pigeon", 50.0, 70.0, 5));
+        priceList.put(1, new MarketItem("Chicken", 10.0, 12.0, 15));
+        priceList.put(2, new MarketItem("Duck", 20.0, 25.0, 10));
+        priceList.put(3, new MarketItem("Pigeon", 20.0, 25.0, 10));
+
     }
 
-    public void displayPrices() {
-        priceList.forEach((key, value) -> System.out.println(key + "\t\t" + value));
+    public void displayInfo(){
+        System.out.println("_________________________________________PRICE LIST_________________________________________");
+        System.out.println();
+        System.out.println("product id \t|\tproduct name \t|\tpurchase price\t|\tselling price\t|\tavailable amount\n");
+        priceList.forEach((key, value) -> {
+            System.out.print("\t" + key);
+            ((MarketItem) value).displayItem();
+        });
+
+        System.out.println();
     }
-    public void sell(){
-        System.out.println("Sprzedales cos");
+    //  you can sell your things for the purchase price
+    public void sell(Integer id){
+        ((MarketItem) priceList.get(id)).updateAmount(1);
+        System.out.println("one sold");
     }
-    public void buy(){
-        System.out.println("Kupiles cos");
+    // you can buy items for selling price
+    public void buy(Integer id){
+        ((MarketItem) priceList.get(id)).updateAmount((-1));
+        System.out.println("one bought");
     }
 
     public static Market getInstance(){

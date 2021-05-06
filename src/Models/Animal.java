@@ -10,12 +10,21 @@ zwierzęta
 	- szanse na rozmnożenie, jeśli posiadasz więcej niż jedno*/
 
 import java.util.Date;
-import Interfaces.Animals;
+import Interfaces.iAnimals;
 
-enum Gender {MALE, FEMALE}
-enum Food {}
-enum Shelter {CHICKEN_COOP, DOVECOTE}
-public abstract class Animal implements Animals {
+enum Gender {
+    MALE,
+    FEMALE
+}
+enum Food {
+
+}
+enum Shelter {
+    CHICKEN_COOP,
+    DOVECOTE
+}
+
+public abstract class Animal implements iAnimals {
     Gender gender;
     Date birthDate;
     Integer endOfPuberty;       //after _ weeks
