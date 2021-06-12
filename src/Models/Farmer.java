@@ -11,6 +11,7 @@ package Models;
 
 import java.io.Console;
 import java.util.ArrayList;
+import java.lang.reflect.*;
 
 public class Farmer {
     /*
@@ -24,8 +25,22 @@ public class Farmer {
 
     Farm farm = new Farm();
 
+    public void update(){
+        System.out.println("Update farmer info after selling smth");
+    }
+    public void update(String item){
+        System.out.println("Update farmer info after buying "+ item);
+        String className = "Models.Animals."+item;
+        farm.update(className);
+
+    }
+
     public void displayInfo(){
         System.out.println(">>>> Farmer: "+ name.toUpperCase());
+    }
+
+    public void displayFarmInfo(){
+        farm.displayInfo();
     }
 }
 

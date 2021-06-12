@@ -50,20 +50,21 @@ public class Game {
 
                     if (choice1tier == 1) { //Market place
 
-                        marketPlace.displayInfo();
-
                         do {
+                            marketPlace.displayInfo();
                             System.out.print("Do you want to 1. buy, 2. sell, or maybe 3. resign: ");
                             choice2tier = Integer.valueOf(input.next());
 
                             if (choice2tier == 1) {
                                 System.out.print("Enter the id of the product you are interested in: ");
                                 int productId = Integer.valueOf(input.next());
-                                marketPlace.buy(productId);
+                                String item = marketPlace.buy(productId);
+                                currentPlayer.update(item);
                             } else if (choice2tier == 2) {
                                 System.out.print("Enter the id of the product you are interested in: ");
                                 int productId = Integer.valueOf(input.next());
                                 marketPlace.sell(productId);
+                                currentPlayer.update();
                             } else if (choice2tier != 3) {
                                 System.out.println("Select a number from the available options!");
                             }
@@ -74,7 +75,7 @@ public class Game {
                             System.out.println("1. Info\t\t2. Return");
                             choice2tier = Integer.valueOf(input.next());
                             if (choice2tier == 1) {
-                                System.out.print("Farm info.");
+                                currentPlayer.displayFarmInfo();
                             } else if (choice2tier != 2) {
                                 System.out.println("Select a number from the available options!");
                             }

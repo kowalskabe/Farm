@@ -1,4 +1,4 @@
-package Interfaces;
+package Models.Animals.Interfaces;
 
 public interface iAnimals {
     void displayInfo();

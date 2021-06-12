@@ -23,7 +23,6 @@ public class Market {
         priceList.put(1, new MarketItem("Chicken", 10.0, 12.0, 15));
         priceList.put(2, new MarketItem("Duck", 20.0, 25.0, 10));
         priceList.put(3, new MarketItem("Pigeon", 20.0, 25.0, 10));
-
     }
 
     public void displayInfo(){
@@ -39,13 +38,15 @@ public class Market {
     }
     //  you can sell your things for the purchase price
     public void sell(Integer id){
-        ((MarketItem) priceList.get(id)).updateAmount(1);
+        ((MarketItem) priceList.get(id)).updateAmount(1);  //update() - price list and current farmers farm
         System.out.println("one sold");
+
     }
     // you can buy items for selling price
-    public void buy(Integer id){
+    public String buy(Integer id){
         ((MarketItem) priceList.get(id)).updateAmount((-1));
         System.out.println("one bought");
+        return ((MarketItem) priceList.get(id)).getName().toString();
     }
 
     public static Market getInstance(){

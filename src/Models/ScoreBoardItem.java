@@ -13,7 +13,6 @@ public class ScoreBoardItem {
         this.playerName = name;
         this.farmland = 0.0;
         this.animalsSpecies = new HashSet<String>();
-
     }
 
     protected String getName () {

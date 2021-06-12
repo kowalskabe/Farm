@@ -7,7 +7,6 @@ public class MarketItem {
     private Integer availableAmount;
 
     protected MarketItem(String name, Double purchasePrice, Double sellingPrice, Integer amount) {
-
         this.name = name;
         this.purchasePrice = purchasePrice;
         this.sellingPrice = sellingPrice;
