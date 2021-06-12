@@ -3,6 +3,7 @@ import java.util.*;
 import java.util.ArrayList;
 
 import Models.*;
+import Models.Animals.Animal;
 
 public class Game {
     public static void main(String[] args){
@@ -58,8 +59,8 @@ public class Game {
                             if (choice2tier == 1) {
                                 System.out.print("Enter the id of the product you are interested in: ");
                                 int productId = Integer.valueOf(input.next());
-                                String item = marketPlace.buy(productId);
-                                currentPlayer.update(item);
+                                Animal boughtAnimal = marketPlace.buy(productId);
+                                currentPlayer.update(boughtAnimal);
                             } else if (choice2tier == 2) {
                                 System.out.print("Enter the id of the product you are interested in: ");
                                 int productId = Integer.valueOf(input.next());

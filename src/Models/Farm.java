@@ -27,26 +27,8 @@ public class Farm {
     Double arebleLand = 0.0;
     ArrayList <Animal> animals = new ArrayList();
 
-    public void update(String className){
-        try {
-            Class<?> c = Class.forName(className);
-            Constructor<?> constructor = c.getConstructor();
-            Object newAnimal = constructor.newInstance();
-            animals.add((Animal) newAnimal);
-            System.out.println("Creating "+ className);
-            System.out.println("Added "+ newAnimal);
-            this.displayInfo();
-
-        } catch (ClassNotFoundException | NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        }
-        System.out.println("Updating farm..");
+    public void update(Animal animal){
+        animals.add(animal);
     }
     public void displayInfo() {
         System.out.println("| Farm:");

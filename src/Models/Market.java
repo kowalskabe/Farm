@@ -3,10 +3,13 @@ package Models;/*
 Dodaj obsługę wahań ceny sprzedaży produktów rolnych (10%) - cena może ulegać losowym wahaniom, możesz sprzedać plony od razu po zbiorach lub przechowywać je jakiś czas i czekać na lepszą okazję.
  */
 // ----->  singleton design pattern
-import java.util.ArrayList;
+import Factories.AnimalTypes;
+import Factories.FactoryGenerator;
+import Factories.FactoryType;
+import Models.Animals.Animal;
+
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Map.Entry;
 
 public class Market {
     private static Market uniqueInstance = new Market();
@@ -43,10 +46,12 @@ public class Market {
 
     }
     // you can buy items for selling price
-    public String buy(Integer id){
+    public Animal buy(Integer id){
         ((MarketItem) priceList.get(id)).updateAmount((-1));
+        String boughtAnimalName = ((MarketItem) priceList.get(id)).getName().toUpperCase();
+        Animal boughtAnimal = FactoryGenerator.getFactory(FactoryType.ANIMALFACTORY).getAnimal(AnimalTypes.valueOf(boughtAnimalName));
         System.out.println("one bought");
-        return ((MarketItem) priceList.get(id)).getName().toString();
+        return (boughtAnimal);
     }
 
     public static Market getInstance(){
